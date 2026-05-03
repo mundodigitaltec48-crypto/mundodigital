@@ -533,29 +533,22 @@
 <script>
 function aceptarCookies() {
     localStorage.setItem("cookiesAceptadas", "si");
-
     const banner = document.getElementById("cookieBanner");
-
     if (banner) banner.style.display = "none";
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
     const banner = document.getElementById("cookieBanner");
 
-    // Evita errores si no existe
-    if (!banner) return;
-
-    // Mostrar solo si NO ha aceptado
-    if (localStorage.getItem("cookiesAceptadas") !== "si") {
-        banner.style.display = "block";
-    } else {
-        banner.style.display = "none";
+    if (!banner) {
+        console.log("NO EXISTE cookieBanner ❌");
+        return;
     }
 
-    // Permitir scroll siempre
-    document.body.style.overflow = "auto";
+    if (localStorage.getItem("cookiesAceptadas") !== "si") {
+        banner.style.display = "block";
+    }
 });
-</script>
 </script>
 </body>
 </html>
