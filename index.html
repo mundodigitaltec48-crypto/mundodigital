@@ -460,18 +460,20 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.45);
-    z-index: 9998;
-    pointer-events: none; /* ✔ evita bloquear clics */
-}
 
+    background: rgba(0,0,0,0.45);
+    z-index: 99998;
+}
+#fondoCookies {
+    pointer-events: none;
+}
 .cookie-banner {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 9999;
 
+    z-index: 99999;
     background: white;
     color: #222;
 
