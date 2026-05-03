@@ -539,12 +539,21 @@
 
 </style>
 <script>
-function aceptarCookies() {
-    localStorage.setItem("cookiesAceptadas", "si");
+document.addEventListener("DOMContentLoaded", function() {
+
+    // 👇 fuerza empezar arriba SIEMPRE (clave en móviles)
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 50);
 
     const banner = document.getElementById("cookieBanner");
-    if (banner) banner.style.display = "none";
-}
+    const fondo = document.getElementById("fondoCookies");
+
+    if (localStorage.getItem("cookiesAceptadas") !== "si") {
+        if (banner) banner.style.display = "flex";
+        if (fondo) fondo.style.display = "block";
+    }
+});
 </script>
 
 </script>
