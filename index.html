@@ -543,8 +543,22 @@ function aceptarCookies() {
     localStorage.setItem("cookiesAceptadas", "si");
 
     const banner = document.getElementById("cookieBanner");
-    if (banner) banner.style.display = "none";
+
+    if (banner) {
+        banner.style.display = "none";  // 👈 desaparece inmediato
+    }
 }
+
+// 👇 asegura que no vuelva a aparecer
+document.addEventListener("DOMContentLoaded", function() {
+    const banner = document.getElementById("cookieBanner");
+
+    if (!banner) return;
+
+    if (localStorage.getItem("cookiesAceptadas") === "si") {
+        banner.style.display = "none";
+    }
+});
 </script>
 
 </script>
