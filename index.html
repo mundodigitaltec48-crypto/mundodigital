@@ -549,18 +549,6 @@ function aceptarCookies() {
     if (fondo) fondo.style.display = "none";
 }
 
-// 👇 para que no vuelva a aparecer al recargar
-document.addEventListener("DOMContentLoaded", function() {
-    const banner = document.getElementById("cookieBanner");
-    const fondo = document.getElementById("fondoCookies");
-
-    if (!banner || !fondo) return;
-
-    if (localStorage.getItem("cookiesAceptadas") === "si") {
-        banner.style.display = "none";
-        fondo.style.display = "none";
-    }
-});
 </script>
 
 </script>
