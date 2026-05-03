@@ -460,7 +460,8 @@
     height: 100%;
     background: rgba(0,0,0,0.45);
     z-index: 9998;
-    pointer-events: none; /* ✔ evita bloquear clics */
+    pointer-events: none;
+    display: none; /* 👈 CORREGIDO (oculto al inicio) */
 }
 
 .cookie-banner {
@@ -476,7 +477,8 @@
     padding: 20px 30px;
     box-shadow: 0 -5px 25px rgba(0,0,0,0.25);
 
-    display: flex;
+    display: none; /* 👈 CORREGIDO (oculto al inicio) */
+
     justify-content: space-between;
     align-items: center;
     gap: 20px;
@@ -538,15 +540,22 @@
 function aceptarCookies() {
     localStorage.setItem("cookiesAceptadas", "si");
 
-    document.getElementById("cookieBanner").style.display = "none";
-    document.getElementById("fondoCookies").style.display = "none";
+    const banner = document.getElementById("cookieBanner");
+    const fondo = document.getElementById("fondoCookies");
+
+    if (banner) banner.style.display = "none";
+    if (fondo) fondo.style.display = "none";
 
     document.body.style.overflow = "auto";
 }
 
-window.addEventListener("load", function() {
+// Mejor que window.load (más rápido y seguro)
+document.addEventListener("DOMContentLoaded", function() {
     const banner = document.getElementById("cookieBanner");
     const fondo = document.getElementById("fondoCookies");
+
+    // Si no existen, evitar errores
+    if (!banner || !fondo) return;
 
     if (localStorage.getItem("cookiesAceptadas") === "si") {
         banner.style.display = "none";
@@ -556,7 +565,7 @@ window.addEventListener("load", function() {
         fondo.style.display = "block";
     }
 
-    // ✔ SIEMPRE permitir scroll (solución al “congelado”)
+    // Siempre permitir scroll (evita “pantalla congelada”)
     document.body.style.overflow = "auto";
 });
 </script>
