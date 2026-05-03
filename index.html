@@ -439,6 +439,7 @@
 
 <!-- BANNER DE COOKIES -->
 
+<div id="cookieBanner" class="cookie-banner">
   <div>
     <strong>Privacidad y cookies</strong>
     <p>
@@ -449,6 +450,7 @@
   </div>
 
   <button onclick="aceptarCookies()">Aceptar</button>
+</div>
 
 
 <style>
@@ -533,17 +535,25 @@
 <script>
 function aceptarCookies() {
     localStorage.setItem("cookiesAceptadas", "si");
-    const banner = document.getElementById("cookieBanner");
-    if (banner) banner.style.display = "none";
+
+    document.getElementById("cookieBanner").style.display = "none";
+    document.getElementById("fondoCookies").style.display = "none";
+
+    document.body.style.overflow = "auto";
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
     const banner = document.getElementById("cookieBanner");
+    const fondo = document.getElementById("fondoCookies");
 
-    if (!banner) return;
-
-    if (localStorage.getItem("cookiesAceptadas") !== "si") {
-        banner.style.display = "block";
+    if (localStorage.getItem("cookiesAceptadas") === "si") {
+        banner.style.display = "none";
+        fondo.style.display = "none";
+        document.body.style.overflow = "auto";
+    } else {
+        banner.style.display = "flex";
+        fondo.style.display = "block";
+        document.body.style.overflow = "auto"; // 👈 CORREGIDO
     }
 });
 </script>
