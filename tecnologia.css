@@ -9,7 +9,7 @@ body {
     border-radius: 10px;
     background: linear-gradient(to right, #e3f2fd, #ffffff);
     -webkit-font-smoothing: antialiased;
-    backdrop-filter: blur(6px);
+    
     transition: background 0.4s, color 0.4s;
 }
 .header {
