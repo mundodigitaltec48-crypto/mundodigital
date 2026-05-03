@@ -539,12 +539,17 @@
 
 </style>
 <script>
-function aceptarCookies() {
-    localStorage.setItem("cookiesAceptadas", "si");
+document.addEventListener("DOMContentLoaded", function() {
 
-    const banner = document.getElementById("cookieBanner");
-    if (banner) banner.style.display = "none";
-}
+    // modo oscuro
+    if (localStorage.getItem("modo") === "oscuro"){
+        document.body.classList.add("dark");
+    }
+
+    // forzar arriba
+    window.scrollTo(0, 0);
+
+});
 </script>
 
 </script>
