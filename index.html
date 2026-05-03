@@ -464,24 +464,29 @@
 }
 
 .cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
+    position: fixed;   /* ✔ SIEMPRE en pantalla */
+    bottom: 20px;      /* 👈 no pegado al borde */
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    max-width: 900px;
+
+    z-index: 999999;   /* 👈 MUY IMPORTANTE */
 
     background: white;
     color: #222;
 
-    padding: 20px 30px;
-    box-shadow: 0 -5px 25px rgba(0,0,0,0.25);
+    padding: 15px 25px;
+    border-radius: 12px;
 
-    display: flex;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+
+    display: none;
+
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-
-    animation: aparecer 0.5s ease;
 }
 
 @keyframes aparecer {
