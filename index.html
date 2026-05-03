@@ -541,17 +541,19 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
-    // modo oscuro
-    if (localStorage.getItem("modo") === "oscuro"){
-        document.body.classList.add("dark");
+    // 👇 fuerza empezar arriba SIEMPRE (clave en móviles)
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 50);
+
+    const banner = document.getElementById("cookieBanner");
+    const fondo = document.getElementById("fondoCookies");
+
+    if (localStorage.getItem("cookiesAceptadas") !== "si") {
+        if (banner) banner.style.display = "flex";
+        if (fondo) fondo.style.display = "block";
     }
-
-    // forzar arriba
-    window.scrollTo(0, 0);
-
 });
-</script>
-
 </script>
 </body>
 </html>
