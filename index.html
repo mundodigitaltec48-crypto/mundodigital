@@ -532,21 +532,17 @@
 
 </style>
 <script>
-function aceptarCookies() {
-    localStorage.setItem("cookiesAceptadas", "si");
-    document.getElementById("cookieBanner").style.display = "none";
-}
+window.onload = function() {
 
-document.addEventListener("DOMContentLoaded", function() {
-    const banner = document.getElementById("cookieBanner");
-
-    if (localStorage.getItem("cookiesAceptadas") === "si") {
-        banner.style.display = "none";
+    // modo oscuro
+    if (localStorage.getItem("modo") === "oscuro"){
+        document.body.classList.add("dark");
     }
 
-    // 👇 FORZAR SIEMPRE ARRIBA
+    // 👇 FORZAR ARRIBA
     window.scrollTo(0, 0);
-});
+};
+</script>
 
 </script>
 </body>
