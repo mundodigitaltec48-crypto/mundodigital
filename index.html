@@ -543,20 +543,22 @@ function aceptarCookies() {
     localStorage.setItem("cookiesAceptadas", "si");
 
     const banner = document.getElementById("cookieBanner");
+    const fondo = document.getElementById("fondoCookies");
 
-    if (banner) {
-        banner.style.display = "none";  // 👈 desaparece inmediato
-    }
+    if (banner) banner.style.display = "none";
+    if (fondo) fondo.style.display = "none";
 }
 
-// 👇 asegura que no vuelva a aparecer
+// 👇 para que no vuelva a aparecer al recargar
 document.addEventListener("DOMContentLoaded", function() {
     const banner = document.getElementById("cookieBanner");
+    const fondo = document.getElementById("fondoCookies");
 
-    if (!banner) return;
+    if (!banner || !fondo) return;
 
     if (localStorage.getItem("cookiesAceptadas") === "si") {
         banner.style.display = "none";
+        fondo.style.display = "none";
     }
 });
 </script>
