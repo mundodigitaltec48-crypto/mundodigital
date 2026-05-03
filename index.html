@@ -551,12 +551,13 @@ window.addEventListener("load", function() {
     if (localStorage.getItem("cookiesAceptadas") === "si") {
         banner.style.display = "none";
         fondo.style.display = "none";
-        document.body.style.overflow = "auto";
     } else {
         banner.style.display = "flex";
         fondo.style.display = "block";
-        document.body.style.overflow = "auto"; // 👈 CORREGIDO
     }
+
+    // ✔ SIEMPRE permitir scroll (solución al “congelado”)
+    document.body.style.overflow = "auto";
 });
 </script>
 </body>
