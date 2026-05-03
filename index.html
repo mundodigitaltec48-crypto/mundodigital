@@ -455,8 +455,8 @@
 /* POPUP DE COOKIES CENTRADO */
 .cookie-banner {
     position: fixed;
-    top: 50%;              /* 👈 centrado vertical */
-    left: 50%;             /* 👈 centrado horizontal */
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
 
     width: 90%;
@@ -471,11 +471,9 @@
 
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 
-    display: none;
+    display: none; /* oculto al inicio */
 
     text-align: center;
-
-    animation: aparecer 0.4s ease;
 }
 
 /* ANIMACIÓN */
@@ -547,15 +545,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // Evita errores si no existe
     if (!banner) return;
 
-    if (localStorage.getItem("cookiesAceptadas") === "si") {
-        banner.style.display = "none";
+    // Mostrar solo si NO ha aceptado
+    if (localStorage.getItem("cookiesAceptadas") !== "si") {
+        banner.style.display = "block";
     } else {
-        banner.style.display = "block"; // 👈 popup normal
+        banner.style.display = "none";
     }
 
-    // Siempre permitir scroll
+    // Permitir scroll siempre
     document.body.style.overflow = "auto";
 });
+</script>
 </script>
 </body>
 </html>
