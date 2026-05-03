@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://TU_USUARIO.github.io/tecnologia/sitemap.xml
+Sitemap: https://mundodigitaltec48-crypto.github.io/mundodigital/sitemap.xml
