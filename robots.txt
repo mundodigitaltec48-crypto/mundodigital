@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Bloquear cosas innecesarias (opcional)
+Disallow: /scripts/
+Disallow: /tmp/
+
 Sitemap: https://mundodigitaltec48-crypto.github.io/mundodigital/sitemap.xml
