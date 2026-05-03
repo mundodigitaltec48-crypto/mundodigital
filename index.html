@@ -539,16 +539,12 @@
 
 </style>
 <script>
-window.onload = function() {
+function aceptarCookies() {
+    localStorage.setItem("cookiesAceptadas", "si");
 
-    // modo oscuro
-    if (localStorage.getItem("modo") === "oscuro"){
-        document.body.classList.add("dark");
-    }
-
-    // 👇 FORZAR ARRIBA
-    window.scrollTo(0, 0);
-};
+    const banner = document.getElementById("cookieBanner");
+    if (banner) banner.style.display = "none";
+}
 </script>
 
 </script>
