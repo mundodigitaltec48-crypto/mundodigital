@@ -465,15 +465,28 @@
 }
 
 .cookie-banner {
-    position: fixed !important;
-    bottom: 0;
-    left: 0;
+    position: fixed;
+    bottom: 20px;              /* separación del borde */
+    left: 50%;
+    transform: translateX(-50%);
+
     width: 100%;
+    max-width: 900px;          /* 👈 MISMO ANCHO QUE TU PÁGINA */
 
     z-index: 999999;
 
     background: white;
-    padding: 15px;
+    color: #222;
+
+    padding: 15px 25px;
+    border-radius: 12px;       /* 👈 estilo más elegante */
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 @keyframes aparecer {
     from {
