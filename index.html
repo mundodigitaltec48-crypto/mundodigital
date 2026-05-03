@@ -539,19 +539,26 @@
 
 </style>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-
-    // 👇 fuerza empezar arriba SIEMPRE (clave en móviles)
-    setTimeout(() => {
-        window.scrollTo(0, 0);
-    }, 50);
+function aceptarCookies() {
+    localStorage.setItem("cookiesAceptadas", "si");
 
     const banner = document.getElementById("cookieBanner");
     const fondo = document.getElementById("fondoCookies");
 
-    if (localStorage.getItem("cookiesAceptadas") !== "si") {
-        if (banner) banner.style.display = "flex";
-        if (fondo) fondo.style.display = "block";
+    if (banner) banner.style.display = "none";
+    if (fondo) fondo.style.display = "none";
+}
+
+// 👇 para que no vuelva a aparecer al recargar
+document.addEventListener("DOMContentLoaded", function() {
+    const banner = document.getElementById("cookieBanner");
+    const fondo = document.getElementById("fondoCookies");
+
+    if (!banner || !fondo) return;
+
+    if (localStorage.getItem("cookiesAceptadas") === "si") {
+        banner.style.display = "none";
+        fondo.style.display = "none";
     }
 });
 </script>
