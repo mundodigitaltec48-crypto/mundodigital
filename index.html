@@ -470,13 +470,13 @@
     left: 0;
     width: 100%;
 
-    z-index: 999999;
+    z-index: 999999; /* 👈 MUY ALTO */
 
     background: white;
     padding: 15px 25px;
     box-shadow: 0 -5px 20px rgba(0,0,0,0.25);
 
-    display: flex; /* 👈 CAMBIO IMPORTANTE */
+    display: flex; /* 👈 SIEMPRE visible */
 
     justify-content: space-between;
     align-items: center;
@@ -529,6 +529,10 @@
         padding: 20px;
     }
 }
+html, body {
+    margin: 0;
+    padding: 0;
+}
 </style>
 <script>
 function aceptarCookies() {
@@ -539,11 +543,14 @@ function aceptarCookies() {
 document.addEventListener("DOMContentLoaded", function() {
     const banner = document.getElementById("cookieBanner");
 
-    // 👇 SOLO ocultar si ya aceptó
     if (localStorage.getItem("cookiesAceptadas") === "si") {
         banner.style.display = "none";
     }
+
+    // 👇 FORZAR SIEMPRE ARRIBA
+    window.scrollTo(0, 0);
 });
+
 </script>
 </body>
 </html>
