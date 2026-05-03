@@ -438,7 +438,7 @@
 <div id="fondoCookies"></div>
 
 <!-- BANNER DE COOKIES -->
-<div id="cookieBanner" class="cookie-banner">
+
   <div>
     <strong>Privacidad y cookies</strong>
     <p>
@@ -449,7 +449,7 @@
   </div>
 
   <button onclick="aceptarCookies()">Aceptar</button>
-</div>
+
 
 <style>
 /* POPUP DE COOKIES CENTRADO */
@@ -537,13 +537,10 @@ function aceptarCookies() {
     if (banner) banner.style.display = "none";
 }
 
-window.addEventListener("load", function() {
+document.addEventListener("DOMContentLoaded", function() {
     const banner = document.getElementById("cookieBanner");
 
-    if (!banner) {
-        console.log("NO EXISTE cookieBanner ❌");
-        return;
-    }
+    if (!banner) return;
 
     if (localStorage.getItem("cookiesAceptadas") !== "si") {
         banner.style.display = "block";
